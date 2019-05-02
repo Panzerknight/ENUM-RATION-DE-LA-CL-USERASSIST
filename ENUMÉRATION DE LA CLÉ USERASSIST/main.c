@@ -5,7 +5,7 @@
 #define MAX_KEY_LENGTH 255
 #define MAX_VALUE_NAME 16383
 
-void QueryKey(HKEY hKey);
+void QueryKey(char* path, const int root);
 void __cdecl key(char* path);
 
 void __cdecl _tmain()
@@ -20,13 +20,13 @@ void __cdecl key(char* path)
 
 	if (RegOpenKeyEx(HKEY_CURRENT_USER, TEXT(path), 0, KEY_READ, &hTestKey) == ERROR_SUCCESS)
 	{
-		QueryKey(path);
+		QueryKey(path, 0);
 	}
 
 	RegCloseKey(hTestKey);
 }
 
-void QueryKey(char *path)
+void QueryKey(char *path, const int root)
 {
 	TCHAR achKey[MAX_KEY_LENGTH]; // buffer for subkey name
 	DWORD cbName; // size of name string 
@@ -53,6 +53,7 @@ void QueryKey(char *path)
 	DWORD cchValue = MAX_VALUE_NAME;
 
 	char *subpath;
+	int j;
 
 	// Get the class name and the value count. 
 	retCode = RegQueryInfoKey(
@@ -79,12 +80,23 @@ void QueryKey(char *path)
 			retCode = RegEnumKeyEx(hKey, i, achKey, &cbName, NULL, NULL, NULL, &ftLastWriteTime);
 			if (retCode == ERROR_SUCCESS)
 			{
-				_tprintf(TEXT("(%d) %s\n"), i + 1, achKey);
+				for (j = 0; i < root; i++)
+				{
+					if (i % 2 == 0 || i == 0)
+						printf("%c", 179);
+					else
+						printf(" ");
+
+				}
+				printf("%c%c%s\n", 195, 196, achKey);
+	
 				subpath = malloc(strlen(path) + 2 + strlen(achKey));
+
 				strcpy(subpath, path);
 				strcat(subpath, "\\");
 				strcat(subpath, achKey);
-				QueryKey(subpath);
+
+				QueryKey(subpath, root + 2);
 			}
 		}
 	}
@@ -93,8 +105,6 @@ void QueryKey(char *path)
 
 	if (cValues)
 	{
-		printf("\nNumber of values: %d\n", cValues);
-
 		for (i = 0, retCode = ERROR_SUCCESS; i < cValues; i++)
 		{
 			cchValue = MAX_VALUE_NAME;
@@ -103,7 +113,15 @@ void QueryKey(char *path)
 
 			if (retCode == ERROR_SUCCESS)
 			{
-				_tprintf(TEXT("(%d) %s\n"), i + 1, achValue);
+				for (j = 0; i < root; i++)
+				{
+					if (i % 2 == 0 || i == 0)
+						printf("%c", 179);
+					else
+						printf(" ");
+
+				}
+				printf("%c%c%s\n", 195, 196, achValue);
 			}
 		}
 	}
