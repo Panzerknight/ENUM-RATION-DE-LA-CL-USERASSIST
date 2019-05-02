@@ -1,0 +1,10 @@
+﻿  main.c
+C:\Users\umignon\source\repos\ENUMÉRATION DE LA CLÉ USERASSIST\ENUMÉRATION DE LA CLÉ USERASSIST\main.c(23): warning C4133: 'function': incompatible types - from 'char *' to 'HKEY'
+C:\Users\umignon\source\repos\ENUMÉRATION DE LA CLÉ USERASSIST\ENUMÉRATION DE LA CLÉ USERASSIST\main.c(30): warning C4028: formal parameter 1 different from declaration
+C:\Users\umignon\source\repos\ENUMÉRATION DE LA CLÉ USERASSIST\ENUMÉRATION DE LA CLÉ USERASSIST\main.c(84): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
+C:\Users\umignon\source\repos\ENUMÉRATION DE LA CLÉ USERASSIST\ENUMÉRATION DE LA CLÉ USERASSIST\main.c(85): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): note: see declaration of 'strcat'
+C:\Users\umignon\source\repos\ENUMÉRATION DE LA CLÉ USERASSIST\ENUMÉRATION DE LA CLÉ USERASSIST\main.c(86): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): note: see declaration of 'strcat'
+  ENUMÉRATION DE LA CLÉ USERASSIST.vcxproj -> C:\Users\umignon\source\repos\ENUMÉRATION DE LA CLÉ USERASSIST\Debug\ENUMÉRATION DE LA CLÉ USERASSIST.exe
